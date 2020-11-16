@@ -56,4 +56,15 @@ resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
       assign_public_ip = var.event_target_ecs_target_assign_public_ip
     }
   }
+  
+  input = <<DOC
+{
+  "containerOverrides": [
+    {
+      "name": "name-of-container-to-override",
+      "command": ["echo", "ante"]
+    }
+  ]
+}
+DOC
 }
